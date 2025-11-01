@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Educational App',
-      home:  const MyHomePage(title: '',) ,
+      home:  const MyHomePage(title: 'Educational Latest',) ,
       routes: {
         '/HomePage': (context) => const HomePage(),
         '/TeacherPage': (context) => const TeacherPage(),
@@ -47,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             const SizedBox(height: 20),
             Container(
-              margin: const EdgeInsets.only(top: 50), // Move image 50px up
+              margin: const EdgeInsets.only(top: 20), //
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 0.5,
               decoration: const BoxDecoration(
@@ -57,14 +57,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
+
             Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text(
                     'WHERE KIDS LOVE LEARNING',
-                    style: TextStyle(fontSize: 13, fontFamily: 'circe'),
+                    style: TextStyle(fontSize: 19,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'circe'),
                     textAlign: TextAlign.center,
+
                   ),
                   const Text(
                     'Distant learning & Home \n Schooling Made Easy',
@@ -79,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     'Our mission is to make learning fun,accessible, '
                         '\n and inspiring for every child, helping them'
                         '\n grow smarter and more confident daily.',
-                    style: TextStyle(fontSize: 12, fontFamily: 'circe'),
+                    style: TextStyle(fontSize: 15, fontFamily: 'circe'),
                     textAlign: TextAlign.center,
                   ),
                   Center(
@@ -88,18 +92,18 @@ class _MyHomePageState extends State<MyHomePage> {
                         shape: BoxShape.circle,
                         border: Border.all(
                           width: 25,
-                          color: Colors.black.withOpacity(0.1),
+                          color: Colors.black.withOpacity(0.2),
                         ),
                       ),
                       child: Container(
-                        padding: const EdgeInsets.all(5),
+                        padding: const EdgeInsets.all(4),
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           color:
-                          darkBlue, // ✅ ensure this color is defined in ColorScheme.dart
+                          darkBlue,
                         ),
                         child: IconButton(
-                          onPressed: openHomePage, // ✅ navigate to HomePage
+                          onPressed: openHomePage, //  navigate to HomePage
                           icon: const Icon(
                             Icons.arrow_forward_ios,
                             color: Colors.white,
