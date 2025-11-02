@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:educationalapp/ColorScheme.dart';
+import 'package:educationalapp/color_scheme.dart';
 import 'package:educationalapp/HomePage.dart';
 import 'package:educationalapp/TeacherPage.dart';
 
@@ -13,7 +13,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Educational App',
-      home:  const MyHomePage(title: 'Educational Latest',) ,
+      home: const MyHomePage(
+        title: 'Educational Latest',
+      ),
       routes: {
         '/HomePage': (context) => const HomePage(),
         '/TeacherPage': (context) => const TeacherPage(),
@@ -35,88 +37,85 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.lightBlue,
-      body: SafeArea(
-        child: Column(
-          children: [
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [],
+      body: Column(
+        children: [
+          const SizedBox(height: kToolbarHeight),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [],
+            ),
+          ),
+          const SizedBox(height: 20),
+          Container(
+            margin: const EdgeInsets.only(top: 20), //
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height * 0.5,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/KidsEuro.jpeg'),
+                fit: BoxFit.contain,
               ),
             ),
-            const SizedBox(height: 20),
-            Container(
-              margin: const EdgeInsets.only(top: 20), //
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.5,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/images/KidsEuro.jpeg'),
-                  fit: BoxFit.contain,
+          ),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  'WHERE KIDS LOVE LEARNING',
+                  style: TextStyle(
+                      fontSize: 19,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'circe'),
+                  textAlign: TextAlign.center,
                 ),
-              ),
-            ),
-
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    'WHERE KIDS LOVE LEARNING',
-                    style: TextStyle(fontSize: 19,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'circe'),
-                    textAlign: TextAlign.center,
-
+                const Text(
+                  'Distant learning & Home \n Schooling Made Easy',
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: 'circe',
                   ),
-                  const Text(
-                    'Distant learning & Home \n Schooling Made Easy',
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.w700,
-                      fontFamily: 'circe',
+                  textAlign: TextAlign.center,
+                ),
+                const Text(
+                  'Our mission is to make learning fun,accessible, '
+                  '\n and inspiring for every child, helping them'
+                  '\n grow smarter and more confident daily.',
+                  style: TextStyle(fontSize: 15, fontFamily: 'circe'),
+                  textAlign: TextAlign.center,
+                ),
+                Center(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        width: 25,
+                        color: Colors.black.withOpacity(0.2),
+                      ),
                     ),
-                    textAlign: TextAlign.center,
-                  ),
-                  const Text(
-                    'Our mission is to make learning fun,accessible, '
-                        '\n and inspiring for every child, helping them'
-                        '\n grow smarter and more confident daily.',
-                    style: TextStyle(fontSize: 15, fontFamily: 'circe'),
-                    textAlign: TextAlign.center,
-                  ),
-                  Center(
                     child: Container(
-                      decoration: BoxDecoration(
+                      padding: const EdgeInsets.all(4),
+                      decoration: const BoxDecoration(
                         shape: BoxShape.circle,
-                        border: Border.all(
-                          width: 25,
-                          color: Colors.black.withOpacity(0.2),
-                        ),
+                        color: darkBlue,
                       ),
-                      child: Container(
-                        padding: const EdgeInsets.all(4),
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          color:
-                          darkBlue,
-                        ),
-                        child: IconButton(
-                          onPressed: openHomePage, //  navigate to HomePage
-                          icon: const Icon(
-                            Icons.arrow_forward_ios,
-                            color: Colors.white,
-                          ),
+                      child: IconButton(
+                        onPressed: openHomePage, //  navigate to HomePage
+                        icon: const Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.white,
                         ),
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

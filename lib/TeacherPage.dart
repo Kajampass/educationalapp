@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:educationalapp/ColorScheme.dart';
+import 'package:educationalapp/color_scheme.dart';
 
 class TeacherPage extends StatefulWidget {
   const TeacherPage({super.key});
@@ -28,50 +28,28 @@ class _TeacherPageState extends State<TeacherPage> {
           ),
         ),
       ),
-      extendBodyBehindAppBar: true,
+      //extendBodyBehindAppBar: true,
       body: Column(
         children: [
           Row(
             children: [
-              // Left: Image Stack
               Container(
                 width: 200,
                 height: 200,
-                child: Stack(
-                  children: [
-                    Container(
-                      width: 200,
-                      height: 200,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        image: const DecorationImage(
-                          image: AssetImage('assets/images/backicon.jpg'),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    const Positioned(
-                      bottom: 0,
-                      left: 2,
-                      child: Hero(tag: "male", child: SizedBox.shrink()),
-                    ),
-                    Positioned(
-                      bottom: 0,
-                      right: 0,
-                      child: Container(
-                        height: 200,
-                        width: 150,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          image: const DecorationImage(
-                            image:
-                            AssetImage('assets/images/teachericon.png'),
-                            fit: BoxFit.contain,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  image: const DecorationImage(
+                    image: AssetImage('assets/images/backicon.jpg'),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                child: Hero(
+                  tag: "male",
+                  child: Image.asset(
+                    'assets/images/teachericon.png',
+                    height: 200,
+                    width: 150,
+                  ),
                 ),
               ),
 
@@ -122,8 +100,7 @@ class _TeacherPageState extends State<TeacherPage> {
                             width: 20,
                             decoration: const BoxDecoration(
                               image: DecorationImage(
-                                image: AssetImage(
-                                    'assets/images/blommers.png'),
+                                image: AssetImage('assets/images/blommers.png'),
                               ),
                             ),
                           ),
@@ -163,9 +140,9 @@ class _TeacherPageState extends State<TeacherPage> {
                     const SizedBox(height: 30),
                     const Text(
                       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. "
-                          "Reiciendis voluptas perspiciatis explicabo placeat ipsa sed, "
-                          "quisquam quis aspernatur cum commodi dignissimos provident "
-                          "quae distinctio tempora in tenetur! Minima, sapiente amet?",
+                      "Reiciendis voluptas perspiciatis explicabo placeat ipsa sed, "
+                      "quisquam quis aspernatur cum commodi dignissimos provident "
+                      "quae distinctio tempora in tenetur! Minima, sapiente amet?",
                       style: TextStyle(
                         fontFamily: 'circe',
                         fontSize: 12,
@@ -213,6 +190,7 @@ class _TeacherPageState extends State<TeacherPage> {
                         for (int i = 0; i <= 7; i++) dateWidget(i),
                       ],
                     ),
+                    //use listview.builder
                     const SizedBox(height: 20),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -235,6 +213,7 @@ class _TeacherPageState extends State<TeacherPage> {
                         ),
                       ],
                     ),
+                    //use gridview.builder or listview.builder
                   ],
                 ),
               ),
@@ -355,8 +334,8 @@ class _TeacherPageState extends State<TeacherPage> {
   }
 
   // 🔹 Course widget
-  Container courseWidget(String img, String name, String grade, Color color,
-      Color textColor) {
+  Container courseWidget(
+      String img, String name, String grade, Color color, Color textColor) {
     return Container(
       height: 100,
       width: 200,

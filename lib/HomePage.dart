@@ -1,6 +1,6 @@
+import 'package:educationalapp/tutor_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:educationalapp/ColorScheme.dart';
-import 'package:educationalapp/TeacherPage.dart';
+import 'package:educationalapp/color_scheme.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -72,12 +72,10 @@ class _HomePageState extends State<HomePage> {
                 Container(
                   height: 150,
                   width: 150,
-
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(40),
+                    borderRadius: BorderRadius.circular(40),
                     image: const DecorationImage(
                       image: AssetImage("assets/images/KidsEuro.jpeg"),
-
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -152,12 +150,30 @@ class _HomePageState extends State<HomePage> {
                       child: SingleChildScrollView(
                         child: Column(
                           children: [
-                            tutorWidget("male", "Mr. Peter Partner",
-                                "English", "0-6", "206"),
-                            tutorWidget("male", "Mr. Obi Saint",
-                                "Yoruba", "0-9", "209"),
-                            tutorWidget("female", "Mrs. Mary Ola",
-                                "Justice", "0-7", "290"),
+                            TutorWidget(
+                              img: "male",
+                              name: "Mr. Peter Partner",
+                              subj: "English",
+                              grade: "0-6",
+                              price: "206",
+                              openTeacherPage: openTeacherPage,
+                            ),
+                            TutorWidget(
+                              img: "male",
+                              name: "Mr. Obi Saint",
+                              subj: "Yoruba",
+                              grade: "0-9",
+                              price: "209",
+                              openTeacherPage: openTeacherPage,
+                            ),
+                            TutorWidget(
+                              img: "female",
+                              name: "Mrs. Mary Ola",
+                              subj: "Justice",
+                              grade: "0-7",
+                              price: "290",
+                              openTeacherPage: openTeacherPage,
+                            ),
                           ],
                         ),
                       ),
@@ -165,67 +181,6 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  // ✅ Fixed tutor widget
-  Widget tutorWidget(
-      String img, String name, String subj, String grade, String price) {
-    return InkWell(
-      onTap: openTeacherPage,
-      child: Container(
-        margin: const EdgeInsets.only(top: 20),
-        height: 100,
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(20)),
-          color: lightBlue.withOpacity(0.3),
-        ),
-        child: Row(
-          children: [
-            Hero(
-              tag: img,
-              child: Container(
-                width: 120,
-                height: 100,
-                decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(Radius.circular(20)),
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/$img.png'),
-                    fit: BoxFit.contain,
-                  ),
-                ),
-                child: const Align(
-                  alignment: Alignment.topRight,
-                  child: Icon(
-                    Icons.star,
-                    color: Colors.lightBlue,
-                    size: 30,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(width: 15),
-            // tutor details
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(name,
-                    style: const TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 16)),
-                Text(subj),
-                Text("Grade: $grade"),
-                Text(
-                  "₦$price/hr",
-                  style: const TextStyle(
-                      color: Colors.blueAccent,
-                      fontWeight: FontWeight.w600),
-                ),
-              ],
             ),
           ],
         ),
