@@ -191,6 +191,8 @@ class _TeacherPageState extends State<TeacherPage> {
                       ],
                     ),
                     //use listview.builder
+                    //I asked you to use listview.builder here.
+                    //it will stress you, so tell me about the stress
                     const SizedBox(height: 20),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -214,6 +216,8 @@ class _TeacherPageState extends State<TeacherPage> {
                       ],
                     ),
                     //use gridview.builder or listview.builder
+                    //use gridview.builder here, like above it will stress you
+                    //I want to hear about it, and how you solved it.
                   ],
                 ),
               ),

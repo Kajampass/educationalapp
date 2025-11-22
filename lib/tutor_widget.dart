@@ -32,7 +32,13 @@ class TutorWidget extends StatelessWidget {
         child: Row(
           children: [
             Hero(
-              tag: img,
+              tag: name,
+              //using the above causes some errors.
+              //The error is because the first two
+              //items have the same value in the img
+              //so use name, since it will be diff
+              //for each item built. Or betterstill
+              //use the index from the list.
               child: Container(
                 width: 120,
                 height: 100,
